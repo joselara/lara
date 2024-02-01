@@ -9,6 +9,8 @@ class HomeController extends Controller
 {
     public function __invoke(Request $request): View
     {
+
+        //@TODO: Refactor for lean controller???
         $jobs = [
             [
                 'name' => 'Seek Capital',
