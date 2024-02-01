@@ -1,6 +1,6 @@
 <footer class="mt-32">
     <x-outer-container>
-        <div className="border-t border-zinc-100 pt-10 pb-1">
+        <div class="border-t border-zinc-100 pt-10 pb-1">
             <x-inner-container />
         </div>
     </x-outer-container>
