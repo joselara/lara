@@ -13,28 +13,19 @@
     @vite('resources/css/app.css')
 </head>
 
-<body>
-    <div class="fixed inset-0 flex justify-center sm:px-8">
-        <div class="flex w-full max-w-7xl lg:px-8">
-            <div class="w-full bg-white ring-1 ring-zinc-100"></div>
+<body class="font-sans antialiased">
+    <div id="app">
+        <div class="fixed inset-0 flex justify-center sm:px-8">
+            <div class="flex w-full max-w-7xl lg:px-8">
+                <div class="w-full bg-white ring-1 ring-zinc-100"></div>
+            </div>
+        </div>
+        <div class="relative">
+            @yield('content')
+            <x-footer />
         </div>
     </div>
-    <div class="relative">
-        <x-container>
-            <x-header>
-                <x-container>
-                    <h1 class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl">
-                        Software Expertise, Startup Spirit: Crafting the Next Generation of Digital Solutions
-                    </h1>
-                </x-container>
-            </x-header>
-        </x-container>
-
-        @yield('content')
-
-        <x-footer />
-    </div>
-
+    @vite('resources/js/app.ts')
 </body>
 
 </html>
