@@ -23,13 +23,13 @@
         </div>
         <div>{{ $location }}</div>
     </div>
-    <div class="">
+    <div>
         @if ($description)
             <p>{{ $description }}</p>
         @endif
 
         @if ($bullets)
-            <ul role="list" class="list-disc pl-4">
+            <ul role="list" class="list-disc pl-4 text-zinc-600">
                 @foreach ($bullets as $bullet)
                     <li>{{ $bullet }}</li>
                 @endforeach
