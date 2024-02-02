@@ -9,8 +9,20 @@ class HomeController extends Controller
 {
     public function __invoke(Request $request): View
     {
-
         //@TODO: Refactor for lean controller???
+
+        $images = collect([
+            'lala-1.png',
+            'lala-2.png',
+            'lala-3.png',
+            'lala-4.png',
+            'lala-5.png',
+            'rds-app-2.png',
+            'rds-app-4.png',
+            'rds-app-7.png',
+            'rds-app-8.png',
+        ])->map(fn ($imageName) => assetUrl($imageName));
+
         $jobs = [
             [
                 'name' => 'Seek Capital',
@@ -68,6 +80,6 @@ class HomeController extends Controller
             ],
         ];
 
-        return view('welcome', compact('jobs'));
+        return view('welcome', compact('jobs', 'images'));
     }
 }

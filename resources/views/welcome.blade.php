@@ -2,6 +2,16 @@
 
 @section('content')
     <x-container>
+        <x-header>
+            <x-container>
+                <h1 class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl">
+                    Software Expertise, Startup Spirit: Crafting the Next Generation of Digital Solutions
+                </h1>
+            </x-container>
+        </x-header>
+    </x-container>
+
+    <x-container>
         <div class="mt-10">
             <x-container>
                 <p class="text-zinc-600">
@@ -19,6 +29,19 @@
     <x-container>
         <x-socials />
     </x-container>
+
+    <div class="mt-20">
+        <x-container>
+            <x-container>
+                <div class="sm:flex justify-between items-end">
+                    <div class="text-3xl font-bold tracking-tight text-zinc-800 sm:text-4xl block">
+                        Showreel of Software Solutions
+                    </div>
+                </div>
+            </x-container>
+        </x-container>
+        <showcase-reel :images='@json($images)' />
+    </div>
 
     <x-container>
         <div class="mt-20">
