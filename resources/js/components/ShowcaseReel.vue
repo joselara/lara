@@ -1,32 +1,44 @@
 <script setup lang="ts">
 import { defineProps, ref, onMounted } from "vue";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/vue/24/solid";
+import LightBox from "./LightBox.vue";
 
 const props = defineProps<{
     images: string[];
 }>();
 
+const lightbox = ref(false);
+const lightboxImageUrl = ref("");
 const rotations = ref<string[]>([]);
 const currentIndex = ref(0);
 const duplicatedImages = ref<string[]>([]);
 
-function generateRotations() {
+const generateRotations = () => {
     if (duplicatedImages.value.length) {
         rotations.value = Array.from(
             { length: duplicatedImages.value.length },
             (_, index) => (index % 2 === 0 ? `rotate(2deg)` : `rotate(-2deg)`)
         );
     }
-}
+};
 
-function nextImage() {
+const nextImage = () => {
     currentIndex.value = (currentIndex.value + 1) % props.images.length;
-}
+};
 
-function prevImage() {
+const prevImage = () => {
     currentIndex.value =
         (currentIndex.value - 1 + props.images.length) % props.images.length;
-}
+};
+
+const openLightbox = (imageUrl: string) => {
+    lightboxImageUrl.value = imageUrl;
+    lightbox.value = true;
+};
+
+const hideLightbox = () => {
+    lightbox.value = false;
+};
 
 onMounted(() => {
     duplicatedImages.value = [...props.images, ...props.images];
@@ -51,6 +63,7 @@ onMounted(() => {
             >
                 <img
                     :src="image"
+                    @click="() => openLightbox(image)"
                     class="absolute inset-0 h-full w-full object-cover"
                 />
             </div>
@@ -74,5 +87,11 @@ onMounted(() => {
                 </div>
             </div>
         </div>
+
+        <LightBox
+            :show="lightbox"
+            @hide="hideLightbox"
+            :imageUrl="lightboxImageUrl"
+        />
     </div>
 </template>
