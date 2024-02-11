@@ -14,18 +14,15 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div id="app">
-        <div class="fixed inset-0 flex justify-center sm:px-8">
-            <div class="flex w-full max-w-7xl lg:px-8">
-                <div class="w-full bg-white ring-1 ring-zinc-100"></div>
-            </div>
-        </div>
-        <div class="relative">
-            @yield('content')
-            <x-footer />
+    <div class="fixed inset-0 flex justify-center sm:px-8">
+        <div class="flex w-full max-w-7xl lg:px-8">
+            <div class="w-full bg-white ring-1 ring-zinc-100"></div>
         </div>
     </div>
-    @vite('resources/js/app.ts')
+    <div class="relative">
+        @yield('content')
+        <x-footer />
+    </div>
 </body>
 
 </html>
